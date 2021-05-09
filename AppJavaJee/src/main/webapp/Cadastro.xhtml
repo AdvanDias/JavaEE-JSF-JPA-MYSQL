@@ -13,23 +13,24 @@
 	<h:panelGrid columns="2">
 	
 	<h:outputText value="Nome"/>
-	<h:inputText value=""/>
+	<h:inputText value="#{userResource.user.nome}"/>
 	
 	<h:outputText value="Email"/>
-	<h:inputText value=""/>
+	<h:inputText value="#{userResource.user.email}"/>
 	
 	<h:outputText value="Senha"/>
-	<h:inputText value=""/>
+	<h:inputText value="#{userResource.user.senha}"/>
 	
 	<h:outputText value="Telefone"/>
-	<h:inputText value=""/>
+	<h:inputText value="#{userResource.tel.numero}"/>
 	
 	<h:outputText value="DDD"/>
-	<h:inputText value=""/>
+	<h:inputText value="#{userResource.tel.ddd}"/>
 	
 	<h:outputText value="Tipo"/>
-	<h:inputText value=""/>
+	<h:inputText value="#{userResource.tel.tipo}"/>
 	
+	<h:commandButton value="Envia" action="#{userResource.recebeDados}"/>
 	
 	</h:panelGrid>
 	</h:form>

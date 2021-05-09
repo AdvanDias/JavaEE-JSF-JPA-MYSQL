@@ -15,7 +15,7 @@ public class UserService {
 		em.getTransaction().commit();
 		em.close();
 		emf.close();
-		System.out.println("USERSERVICE OK");	
+		System.out.println("USERSERVICE OK");
 	}
 	
 }

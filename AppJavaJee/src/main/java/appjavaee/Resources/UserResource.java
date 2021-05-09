@@ -12,7 +12,7 @@ import appjavaee.Services.UserService;
 
 @Named
 @SessionScoped
-public class UserResouce implements Serializable{
+public class UserResource implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 
@@ -22,13 +22,14 @@ public class UserResouce implements Serializable{
 	@Inject
 	private Telefone tel;
 	
-	UserService userService;
+	UserService userService = new UserService();
 	
 	public String recebeDados() {
 		User u = new User(null, user.getNome(), user.getEmail(), user.getSenha());
 		Telefone phone = new Telefone(null, tel.getDdd(), tel.getNumero(), tel.getTipo(), u);
 		userService.criar(u);
 		userService.criar(phone);
+		System.out.println("USERRESOURCE OK");
 		return "";
 	}
 
