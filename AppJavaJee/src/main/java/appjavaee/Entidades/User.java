@@ -1,14 +1,29 @@
 package appjavaee.Entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String nome;
 	private String email;
 	private String senha;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Telefone> telefone = new ArrayList<>();
 	
 	public User(){}
 
@@ -52,7 +67,11 @@ public class User implements Serializable{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
+	
+	public List<Telefone> getTelefone() {
+		return telefone;
+	}
+	
 
 	@Override
 	public int hashCode() {
@@ -84,7 +103,5 @@ public class User implements Serializable{
 		return "User [id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", telefone=" 
 				+ "]";
 	}
-	
-	
 
 }
