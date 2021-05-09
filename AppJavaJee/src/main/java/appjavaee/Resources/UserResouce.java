@@ -8,6 +8,7 @@ import javax.inject.Named;
 
 import appjavaee.Entidades.Telefone;
 import appjavaee.Entidades.User;
+import appjavaee.Services.UserService;
 
 @Named
 @SessionScoped
@@ -21,9 +22,13 @@ public class UserResouce implements Serializable{
 	@Inject
 	private Telefone tel;
 	
-	public String RecebeDados() {
+	UserService userService;
+	
+	public String recebeDados() {
 		User u = new User(null, user.getNome(), user.getEmail(), user.getSenha());
 		Telefone phone = new Telefone(null, tel.getDdd(), tel.getNumero(), tel.getTipo(), u);
+		userService.criar(u);
+		userService.criar(phone);
 		return "";
 	}
 
